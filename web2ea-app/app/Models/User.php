@@ -12,6 +12,7 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,22 +22,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+     
+    
 
-    /**
+    
      * Get the attributes that should be cast.
      *
-     * @return array<string, string>
+     * @return array<string>
      */
     protected function casts(): array
     {
