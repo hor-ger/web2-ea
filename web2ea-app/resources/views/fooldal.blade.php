@@ -6,29 +6,27 @@
             <h1 style="text-align: center;">A hét ajánlatai</h1>
         </header>
 
-        
-            
-            <div class="row gtr-50">
+        <div class="row gtr-50">
             <!-- 1. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic01.jpg') }}" alt="Dobostorta" />
+                    <img src="{{ asset('images/gesztenyescucc.jpeg') }}" alt="Gesztenyealagút" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
-                <h3 style="text-align: center; margin-top: 0.75em;">Klasszikus torták</h3>
+                <h3 style="text-align: center; margin-top: 0.75em;">Gesztenyealagút</h3>
             </div>
 
             <!-- 2. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic02.jpg') }}" alt="Eszterházy torta" />
+                    <img src="{{ asset('images/eszterhazy.jpg') }}" alt="Eszterházy torta" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
-                <h3 style="text-align: center; margin-top: 0.75em;">Krémes szeletek</h3>
+                <h3 style="text-align: center; margin-top: 0.75em;">Eszterházy torta</h3>
             </div>
 
             <!-- 3. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic03.jpg') }}" alt="Sajttorta" />
+                    <img src="{{ asset('images/sajttorta.webp') }}" alt="Sajttorta" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
                 <h3 style="text-align: center; margin-top: 0.75em;">Sajttorták</h3>
             </div>
@@ -36,30 +34,26 @@
             <!-- 4. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic04.jpg') }}" alt="Pogácsa" />
+                    <img src="{{ asset('images/bejglik.jpg') }}" alt="Diós-Mákos bejgli" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
-                <h3 style="text-align: center; margin-top: 0.75em;">Sós sütemények</h3>
+                <h3 style="text-align: center; margin-top: 0.75em;">Diós-Mákos bejgli</h3>
             </div>
 
             <!-- 5. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic01.jpg') }}" alt="Mentes torták" />
+                    <img src="{{ asset('images/pite.jpg') }}" alt="Habos-Mákos pite" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
-                <h3 style="text-align: center; margin-top: 0.75em;">Mentes különlegességek</h3>
+                <h3 style="text-align: center; margin-top: 0.75em;">Habos-Mákos pite</h3>
             </div>
 
             <!-- 6. kép -->
             <div class="col-4 col-6-narrower col-12-mobilep">
                 <a href="/kinalat" class="image fit">
-                    <img src="{{ asset('images/pic02.jpg') }}" alt="Egyedi torták" />
+                    <img src="{{ asset('images/mignon.jpg') }}" alt="Mignon" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px;" />
                 </a>
-                <h3 style="text-align: center; margin-top: 0.75em;">Alkalmi torták</h3>
+                <h3 style="text-align: center; margin-top: 0.75em;">Mignon</h3>
             </div>
         </div>
-
-        </div>
-
-        
     </article>
 </x-mainpage>
