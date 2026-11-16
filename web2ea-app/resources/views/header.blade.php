@@ -11,7 +11,7 @@
 
             @if (Auth::check())
                 <li class="{{ Request::is('uzenetek') ? 'current' : '' }}"><a href="/uzenetek">Üzenetek</a></li>
-                <li class="{{ Request::is('sutik*') ? 'current' : '' }}"><a href="/sutik">CRUD</a></li>
+                <li class="{{ Request::is('crud*') ? 'current' : '' }}"><a href="/crud">CRUD</a></li>
                 <li class="{{ Request::is('user') ? 'current' : '' }}"><a href="/user">Profil</a></li>
                 @if (Auth::user()->role == 1)
                     <li class="{{ Request::is('admin') ? 'current' : '' }}"><a href="/admin">Admin</a></li>

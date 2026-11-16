@@ -1,0 +1,2 @@
+<x-mainpage>
+</x-mainpage>

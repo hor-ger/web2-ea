@@ -22,7 +22,8 @@
         <div id="footer">
             <div class="copyright">
                 <ul class="menu">
-                    <li>&copy; Cukrászda Web-programozás II.</li>
+                    <li>Szebeni Szabolcs</li>
+                    <li>Horváth Gergő</li>
                 </ul>
             </div>
         </div>
