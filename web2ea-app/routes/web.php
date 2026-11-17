@@ -38,7 +38,21 @@ require __DIR__.'/auth.php';
 Route::get('exercise1', function () { return view('view1'); });
 Route::get('introduction', function () { return view('introduction'); });
 Route::get('kapcsolat', function () { return view('kapcsolat'); });
-Route::get('diagram', function () { return view('diagram'); });
+
+Route::get('/diagram', function () {
+    $adatok = DB::table('suti')
+        ->select('tipus', DB::raw('count(*) as darab'))
+        ->groupBy('tipus')
+        ->get();
+
+    $labels = $adatok->pluck('tipus');
+    $data = $adatok->pluck('darab');
+
+    return view('diagram', [
+        'labels' => $labels,
+        'data' => $data,
+    ]);
+})->name('diagram');
 Route::get('uzenetek', function () { return view('uzenetek'); });
 Route::get('crud', function () { return view('crud'); });
 
