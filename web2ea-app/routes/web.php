@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Http\Middleware\Auth2;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ArController;
 
 Route::get('/kinalat', function (Request $request) {
     $kereses = $request->input('kereses');
@@ -58,7 +59,7 @@ Route::post('/uzenet-kuldes', function (Request $request) {
         'ido' => now(),
     ]);
 
-    // Visszairányítás egy sikerüzenettel
+
     return redirect()->route('kapcsolat')->with('siker', 'Az üzenetet sikeresen elküldtük.');
 })->name('uzenet.tarolas');
 
@@ -87,5 +88,18 @@ Route::get('/uzenetek', function () {
     ]);
 })->name('uzenetek');
 
-Route::get('crud', function () { return view('crud'); });
+
+// CRUD főoldal
+Route::get('/crud', [ArController::class, 'crud'])->name('crud');
+
+// CRUD create
+Route::get('/arak/create', [ArController::class, 'create'])->name('arak.create');
+Route::post('/arak', [ArController::class, 'store'])->name('arak.store');
+
+// CRUD edit
+Route::get('/arak/{id}/edit', [ArController::class, 'edit'])->name('arak.edit');
+Route::put('/arak/{id}', [ArController::class, 'update'])->name('arak.update');
+
+// CRUD Törlés
+Route::delete('/arak/{id}', [ArController::class, 'destroy'])->name('arak.destroy');
 
