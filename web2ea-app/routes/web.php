@@ -37,7 +37,30 @@ require __DIR__.'/auth.php';
 
 Route::get('exercise1', function () { return view('view1'); });
 Route::get('introduction', function () { return view('introduction'); });
-Route::get('kapcsolat', function () { return view('kapcsolat'); });
+Route::get('/kapcsolat', function () {
+    return view('kapcsolat');
+})->name('kapcsolat');
+
+Route::post('/uzenet-kuldes', function (Request $request) {
+    $validated = $request->validate([
+        'nev' => ['required', 'string', 'max:255'],
+        'targy' => ['required', 'string', 'max:255'],
+        'uzenet' => ['required', 'string', 'max:255'],
+    ], [
+        'required' => 'A(z) :attribute mező kitöltése kötelező!',
+        'max' => 'A mező legfeljebb :max karakter hosszú lehet!',
+    ]);
+
+    DB::table('uzenetek')->insert([
+        'nev' => $validated['nev'],
+        'targy' => $validated['targy'],
+        'uzenet' => $validated['uzenet'],
+        'ido' => now(),
+    ]);
+
+    // Visszairányítás egy sikerüzenettel
+    return redirect()->route('kapcsolat')->with('siker', 'Az üzenetet sikeresen elküldtük.');
+})->name('uzenet.tarolas');
 
 Route::get('/diagram', function () {
     $adatok = DB::table('suti')
