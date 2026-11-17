@@ -79,14 +79,18 @@ Route::get('/diagram', function () {
 })->name('diagram');
 
 Route::get('/uzenetek', function () {
+    
+if (!auth()->check() || (auth()->user()->role !== 'ROLE_ADMIN' && auth()->user()->role !== 'ROLE_USER')) {
+        abort(403, 'Az üzenetek megtekintéséhez be kell jelentkezned.');
+    }
+
     $uzenetek = DB::table('uzenetek')
         ->orderBy('ido', 'desc')
         ->get();
 
-    return view('uzenetek', [
-        'uzenetek' => $uzenetek,
-    ]);
-})->name('uzenetek');
+    return view('uzenetek', compact('uzenetek'));
+
+})->middleware('auth')->name('uzenetek');
 
 
 // CRUD főoldal
@@ -100,6 +104,6 @@ Route::post('/arak', [ArController::class, 'store'])->name('arak.store');
 Route::get('/arak/{id}/edit', [ArController::class, 'edit'])->name('arak.edit');
 Route::put('/arak/{id}', [ArController::class, 'update'])->name('arak.update');
 
-// CRUD Törlés
+// CRUD törlés
 Route::delete('/arak/{id}', [ArController::class, 'destroy'])->name('arak.destroy');
 
