@@ -76,6 +76,16 @@ Route::get('/diagram', function () {
         'data' => $data,
     ]);
 })->name('diagram');
-Route::get('uzenetek', function () { return view('uzenetek'); });
+
+Route::get('/uzenetek', function () {
+    $uzenetek = DB::table('uzenetek')
+        ->orderBy('ido', 'desc')
+        ->get();
+
+    return view('uzenetek', [
+        'uzenetek' => $uzenetek,
+    ]);
+})->name('uzenetek');
+
 Route::get('crud', function () { return view('crud'); });
 
