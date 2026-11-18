@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Nov 17. 10:44
--- Kiszolgáló verziója: 10.11.16-MariaDB
--- PHP verzió: 8.5.12
+-- Létrehozás ideje: 2026. Nov 17. 17:48
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `ar` (
   `sutiid` int(11) NOT NULL,
   `ertek` int(11) NOT NULL,
   `egyseg` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- A tábla adatainak kiíratása `ar`
@@ -259,7 +259,7 @@ CREATE TABLE `suti` (
   `nev` varchar(255) DEFAULT NULL,
   `tipus` varchar(255) DEFAULT NULL,
   `dijazott` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- A tábla adatainak kiíratása `suti`
@@ -416,7 +416,7 @@ CREATE TABLE `tartalom` (
   `id` int(11) NOT NULL,
   `sutiid` int(11) NOT NULL,
   `mentes` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- A tábla adatainak kiíratása `tartalom`
@@ -478,20 +478,15 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2a$10$QEaf3I.eLiZC4F4pDnqmC.sTysFlJ59wgROmw3ATxceFs/wgg0LvK', 'ROLE_ADMIN'),
-(2, 'User', 'user@gmail.com', '$2a$10$exVjZOnYQ3oFdNTFP7qVHOoL8K2XhKpWXY3r8duw8v9pTNxmC0qbm', 'ROLE_USER'),
-(10, 'asd', 'asd@asd.com', '$2y$12$/3VriWVna6eWLgQqjgDuT.KIiI/f0akJA6kLbGRGCdOeEaZFJWPke', NULL),
-(11, 'asdasd', 'asd@asdasd.com', '$2y$12$mgA9Q/Vd/8TfTcXwdV8gYO907xCBLWxg2IBTI1HbDXFtmig.bsw3.', NULL),
-(12, 'asdasdasd', 'asdasd@asd.com', '$2y$12$LHg5H1aVexdHx7ZCEB92VuRV9rCtyeuhW34BTvVj/Phq1.PITsDKq', NULL),
-(13, 'asdasdasd', 'asdasdasd@asd.com', '$2y$12$jOKpp/OBZPsGAhgipcCUt.A6unL6EvZbZL.qxXGzsAeTMfNWZ.eIq', NULL),
-(14, 'hgergo', 'gergo@gmail.com', '$2y$12$RVIPmSC77cdWD.9nFPb6Ge9m2rjVE4Tmseet9yiOoO7Ivm0FfhiEi', NULL);
+(1, 'Admin', 'admin@admin.hu', '$2y$12$srqdGXh7ODcFyDiBHu0R9.nrCtzF1ZNmrE.eRU/NjzCmzvcz4DoFC', 'ROLE_ADMIN'),
+(2, 'Név', 'email@email.hu', '$2y$12$KHMXyhW0QaC0z6nXx3.uhubZ/EB0tJ7VD6Sc8.UxDlYrBkUyqrKAW', 'ROLE_USER');
 
 -- --------------------------------------------------------
 
@@ -505,7 +500,7 @@ CREATE TABLE `uzenetek` (
   `targy` varchar(255) DEFAULT NULL,
   `uzenet` varchar(255) DEFAULT NULL,
   `ido` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_hungarian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- Indexek a kiírt táblákhoz
@@ -551,7 +546,7 @@ ALTER TABLE `uzenetek`
 -- AUTO_INCREMENT a táblához `ar`
 --
 ALTER TABLE `ar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT a táblához `suti`
@@ -569,13 +564,13 @@ ALTER TABLE `tartalom`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `uzenetek`
 --
 ALTER TABLE `uzenetek`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Megkötések a kiírt táblákhoz
